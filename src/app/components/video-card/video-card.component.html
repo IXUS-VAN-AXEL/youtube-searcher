@@ -1,0 +1,35 @@
+<nb-card class="video-card" size="small">
+    <nb-card-header class="video-card-header">
+        <p class="title">{{ video.snippet.title | videoTitle }}</p>
+    </nb-card-header>
+    <nb-card-body class="video-card-body">
+        <div class="video-thumbnail">
+            <div class="thumbnail"
+                 [ngStyle]="{background: '#000 url(' + video.snippet.thumbnails.high.url + ') center center no-repeat',
+                 'background-size': '100%'}">
+                <span class="video-duration">
+                    <nb-icon icon="clock-outline" class="duration-icon"></nb-icon>
+                    <span>{{ video.contentDetails?.duration | videoDuration }}</span>
+                </span>
+                <!--<i class="material-icons delete-from-playlist" (click)="removeFromPlaylist(video)">cancel</i>-->
+            </div>
+        </div>
+
+        <div class="video-info">
+            <div class="statistics">
+                <div class="statistics-badge">
+                    <nb-icon class="icon" icon="eye-outline"></nb-icon>
+                    <span>{{video.statistics.viewCount}}</span>
+                </div>
+
+                <div class="statistics-badge">
+                    <nb-icon class="icon" icon="heart-outline"></nb-icon>
+                    <span>{{video.statistics.likeCount}}</span>
+                </div>
+
+            </div>
+            <p class="video-description">{{video.snippet.description}}</p>
+        </div>
+
+    </nb-card-body>
+</nb-card>

@@ -7,8 +7,10 @@ import { AppRoutingModule } from './app-routing.module';
 // nebular
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import {
+  NbBadgeModule,
   NbButtonModule,
   NbCardModule,
+  NbIconModule,
   NbLayoutModule,
   NbListModule,
   NbSearchModule,
@@ -23,10 +25,10 @@ import { SharedModule } from './modules/shared/shared.module';
 import { TokenInterceptor } from './services';
 
 // components
-import { AppComponent, VideoListComponent, VideoSearchbarComponent } from './components';
+import { AppComponent, VideoListComponent, VideoSearchbarComponent, VideoCardComponent } from './components';
 
 @NgModule({
-  declarations: [AppComponent, VideoListComponent, VideoSearchbarComponent],
+  declarations: [AppComponent, VideoListComponent, VideoSearchbarComponent, VideoCardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -40,6 +42,8 @@ import { AppComponent, VideoListComponent, VideoSearchbarComponent } from './com
     NbSearchModule,
     NbCardModule,
     NbListModule,
+    NbBadgeModule,
+    NbIconModule,
     NbEvaIconsModule,
   ],
   providers: [

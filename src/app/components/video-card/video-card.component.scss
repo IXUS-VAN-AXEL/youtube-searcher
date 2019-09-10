@@ -1,0 +1,69 @@
+
+.video-card {
+  height: 250px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0;
+
+  .video-card-header {
+    position: relative;
+    width: 100%;
+    .title {
+      font-size: 18px;
+      margin: 0;
+    }
+  }
+
+  .video-card-body {
+    display: flex;
+    flex-flow: row;
+
+    .thumbnail {
+      height: 152px;
+      width: 270px;
+      background: #000;
+      margin: 4px;
+      display: flex;
+      .video-duration {
+        padding: 6px;
+        height: 24px;
+        color: #fff;
+        text-shadow: 4px 4px 4px #000;
+        font-size: 18px;
+      }
+    }
+
+    .video-info {
+      padding: 4px 16px;
+      color: rgba(255, 255, 255, 0.8);
+
+      .statistics {
+        width: 100%;
+        display: flex;
+        padding: 8px 0;
+        align-items: center;
+        justify-content: space-between;
+
+        .statistics-badge {
+          display: flex;
+          align-items: center;
+          font-size: 14px;
+          .icon {
+            margin-right: 6px;
+          }
+        }
+      }
+
+      .video-description {
+        margin: 0;
+        padding-bottom: 16px;
+      }
+    }
+  }
+
+
+
+
+}
+

@@ -16,7 +16,7 @@ import { IVideoObject, ISearchListResponse } from '../../models';
 export class VideoListComponent implements OnInit, OnDestroy {
   public videos$: BehaviorSubject<IVideoObject[]> = new BehaviorSubject<IVideoObject[]>([]);
 
-  private pageSize = 50;
+  private pageSize = 10;
   private pageToLoadNext$: BehaviorSubject<string> = new BehaviorSubject<string>('');
   private lastQString: BehaviorSubject<string> = new BehaviorSubject<string>('');
   private loading = false;
