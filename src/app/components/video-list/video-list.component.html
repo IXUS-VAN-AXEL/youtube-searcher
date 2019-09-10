@@ -1,0 +1,25 @@
+<nb-card>
+    <nb-list
+            nbInfiniteList
+            listenWindowScroll
+            [threshold]="500"
+            (bottomThreshold)="loadNext()">
+        <nb-list-item *ngFor="let video of (videos$ | async)"
+                      id="{{video.id}}"
+                      class="list-item">
+
+            <div class="thumbnail"
+                 [ngStyle]="{'background': '#000 url(' + video.snippet.thumbnails.high.url + ') center center no-repeat', 'background-size': '100%'}">
+                <span class="video-duration">{{ video.contentDetails?.duration | videoDuration }}</span>
+                <!--<i class="material-icons delete-from-playlist" (click)="removeFromPlaylist(video)">cancel</i>-->
+            </div>
+
+            <div class="video-info">
+                <div class="title">
+                    {{ video.snippet.title | videoTitle }}
+                </div>
+
+            </div>
+        </nb-list-item>
+    </nb-list>
+</nb-card>
