@@ -13,28 +13,20 @@ import {
   NbListModule,
   NbSearchModule,
   NbSidebarModule,
-  NbThemeModule
+  NbThemeModule,
 } from '@nebular/theme';
 
 // modules
-import {SharedModule} from './modules/shared/shared.module';
+import { SharedModule } from './modules/shared/shared.module';
 
 // services
-import { TokenInterceptor } from "./services";
+import { TokenInterceptor } from './services';
 
 // components
-import {
-  AppComponent,
-  VideoListComponent,
-  VideoSearchbarComponent,
-} from './components';
+import { AppComponent, VideoListComponent, VideoSearchbarComponent } from './components';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    VideoListComponent,
-    VideoSearchbarComponent
-  ],
+  declarations: [AppComponent, VideoListComponent, VideoSearchbarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -57,6 +49,6 @@ import {
       multi: true,
     },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
