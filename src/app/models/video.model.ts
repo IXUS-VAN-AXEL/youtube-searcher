@@ -13,7 +13,7 @@ export interface ISearchListResponse {
 export interface IVideoObject {
   etag: string;
   kind: string;
-  id: IYouTubeId;
+  id: IYouTubeId & string;
   snippet: ISnippet;
   contentDetails: IContentDetails;
   statistics: IStatistics;

@@ -1,8 +1,13 @@
-<nb-card class="video-card" size="small">
-    <nb-card-header class="video-card-header">
-        <p class="title">{{ video.snippet.title | videoTitle }}</p>
+<nb-card class="video-card easy-seen" [size]="size ==='medium' ? 'small' : 'tiny'" *ngIf="video" [accent]="size ==='small' ? 'info' : ''">
+    <nb-card-header class="video-card-header" [ngClass]="{'video-card-header-small': size !=='medium'}">
+        <p class="title" *ngIf="size ==='medium'">{{ video.snippet.title | videoTitle }}</p>
+        <p class="small-title"  *ngIf="size ==='small'">{{ video.snippet.title | videoTitle:54 }}</p>
+        <button nbButton size="small" (click)="addToFavorites(video)" [disabled]="disableAdd" *ngIf="size==='medium'">
+            <nb-icon class="icon" icon="star"></nb-icon>
+            <span>Add to favorites</span>
+        </button>
     </nb-card-header>
-    <nb-card-body class="video-card-body">
+    <nb-card-body class="video-card-body" [ngClass]="{'video-card-body-small': size !=='medium'}">
         <div class="video-thumbnail">
             <div class="thumbnail"
                  [ngStyle]="{background: '#000 url(' + video.snippet.thumbnails.high.url + ') center center no-repeat',
@@ -11,13 +16,18 @@
                     <nb-icon icon="clock-outline" class="duration-icon"></nb-icon>
                     <span>{{ video.contentDetails?.duration | videoDuration }}</span>
                 </span>
-                <!--<i class="material-icons delete-from-playlist" (click)="removeFromPlaylist(video)">cancel</i>-->
+
+                <div class="remove-from-favor" *ngIf="size==='small'">
+                    <button nbButton size="tiny" (click)="removeFromFavorites(video)" status="danger" class="w-100" >
+                        <nb-icon class="icon" icon="trash-2"></nb-icon>
+                    </button>
+                </div>
             </div>
         </div>
 
         <div class="video-info">
             <div class="statistics">
-                <div class="statistics-badge">
+                <div class="statistics-badge mr-2">
                     <nb-icon class="icon" icon="eye-outline"></nb-icon>
                     <span>{{video.statistics.viewCount}}</span>
                 </div>
@@ -28,7 +38,7 @@
                 </div>
 
             </div>
-            <p class="video-description">{{video.snippet.description}}</p>
+            <p class="video-description" *ngIf="size==='medium'">{{video.snippet.description}}</p>
         </div>
 
     </nb-card-body>

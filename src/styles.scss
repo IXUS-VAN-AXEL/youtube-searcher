@@ -9,3 +9,25 @@
 .w-100 {
   width: 100%;
 }
+
+.mr-2 {
+  margin-right: 16px;
+}
+
+.column {
+  display: flex!important;
+  flex-flow: column nowrap!important;
+}
+
+.easy-seen {
+  animation: opacityAnimation .5s ease-in;
+}
+
+@keyframes opacityAnimation {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}

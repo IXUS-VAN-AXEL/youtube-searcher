@@ -4,6 +4,7 @@ import { filter, switchMap, takeUntil, tap } from 'rxjs/operators';
 
 // services
 import { YoutubeService } from '../../services';
+import {IndexDbService} from '../../modules/shared/services';
 
 // models
 import { IVideoObject, ISearchListResponse } from '../../models';
@@ -13,7 +14,7 @@ import { IVideoObject, ISearchListResponse } from '../../models';
   templateUrl: './video-list.component.html',
   styleUrls: ['./video-list.component.scss'],
 })
-export class VideoListComponent implements OnInit, OnDestroy {
+export class VideoListComponent implements OnDestroy {
   public videos$: BehaviorSubject<IVideoObject[]> = new BehaviorSubject<IVideoObject[]>([]);
 
   private pageSize = 10;
@@ -23,9 +24,16 @@ export class VideoListComponent implements OnInit, OnDestroy {
   private isQueried = false;
   private destroy$: Subject<void> = new Subject<void>();
 
-  constructor(private youtubeService: YoutubeService) {}
-
-  ngOnInit() {}
+  constructor(private youtubeService: YoutubeService,
+              private indexDbService: IndexDbService) {
+    this.indexDbService.connectToBase();
+    this.indexDbService.openDataBase()
+        .pipe(
+            takeUntil(this.destroy$),
+            switchMap(() => this.indexDbService.getAll()),
+            tap(data => this.indexDbService.allRecords$.next(data)),
+        ).subscribe();
+  }
 
   ngOnDestroy(): void {
     this.destroy$.next();

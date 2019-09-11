@@ -7,7 +7,9 @@ import { Component } from '@angular/core';
       <nb-layout-header fixed>
         <app-video-searchbar></app-video-searchbar>
       </nb-layout-header>
-      <nb-sidebar>Sidebar</nb-sidebar>
+      <nb-sidebar>
+        <app-favorites-list></app-favorites-list>
+      </nb-sidebar>
 
       <nb-layout-column>
         <app-video-list></app-video-list>

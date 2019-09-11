@@ -1,4 +1,3 @@
-
 .video-card {
   height: 250px;
   width: 100%;
@@ -7,6 +6,9 @@
   margin: 0;
 
   .video-card-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
     position: relative;
     width: 100%;
     .title {
@@ -25,7 +27,10 @@
       background: #000;
       margin: 4px;
       display: flex;
+      justify-content: space-between;
       .video-duration {
+        display: flex;
+        align-items: center;
         padding: 6px;
         height: 24px;
         color: #fff;
@@ -43,7 +48,6 @@
         display: flex;
         padding: 8px 0;
         align-items: center;
-        justify-content: space-between;
 
         .statistics-badge {
           display: flex;
@@ -62,8 +66,71 @@
     }
   }
 
+  .small-title {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0;
+  }
 
+  .video-card-header-small {
+    padding: 8px;
+    display: flex;
+    flex-flow: column nowrap;
+  }
 
+  .video-card-body-small {
+    padding: 8px;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    min-height: 260px;
+    .video-thumbnail {
+      display: flex;
+      justify-content: center;
+    }
+    .thumbnail {
+      height: 94px;
+      width: 168px;
+      background: #000;
+      margin: 0;
+      display: flex;
+      .video-duration {
+        padding: 2px;
+        color: #fff;
+        text-shadow: 4px 4px 4px #000;
+        font-size: 12px;
+      }
+    }
 
+    .video-info {
+      padding: 0;
+      .statistics {
+        padding: 0;
+        margin-top: 6px;
+        flex-flow: column nowrap;
+        align-items: baseline;
+      }
+    }
+  }
+
+  .remove-from-favor {
+    width: 24px;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    button {
+      padding: 0;
+    }
+  }
+
+  @media (max-width: 1170px) {
+    .video-card-body {
+      flex-flow: column nowrap;
+      .video-thumbnail {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
 }
-

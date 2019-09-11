@@ -18,7 +18,7 @@ export class YoutubeService {
 
   constructor(public http: HttpClient) {}
 
-  public getVideosForChannel(channel: string, maxResults: number): Observable<ISearchListResponse> {
+  public getVideosForChannel(channel: string, maxResults: number = 50): Observable<ISearchListResponse> {
     const params = new HttpParams()
       .set('channelId', channel)
       .set('order', 'date')
@@ -28,7 +28,7 @@ export class YoutubeService {
     return this.http.get<ISearchListResponse>(`${this.apiUrl}/search`, { params });
   }
 
-  public getSearchingVideos(qSearch: string, pageSize: number, maxResults: number): Observable<ISearchListResponse> {
+  public getSearchingVideos(qSearch: string, pageSize: number, maxResults: number = 50): Observable<ISearchListResponse> {
     const params = new HttpParams()
       .set('q', qSearch)
       .set('part', 'snippet')
@@ -45,7 +45,7 @@ export class YoutubeService {
     );
   }
 
-  public getVideosByIds(ids: string[], maxResults: number): Observable<ISearchListResponse> {
+  public getVideosByIds(ids: string[], maxResults: number = 50): Observable<ISearchListResponse> {
     const params = new HttpParams()
       .set('id', ids.join(','))
       .set('part', 'snippet,contentDetails,statistics')
