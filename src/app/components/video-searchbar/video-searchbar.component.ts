@@ -14,7 +14,7 @@ import { NbSearchService } from '@nebular/theme';
 export class VideoSearchbarComponent implements OnInit, OnDestroy {
   private destroy$: Subject<void> = new Subject();
 
-  constructor(private searchService: NbSearchService, private youtubeService: YoutubeService) {}
+  constructor(private searchService: NbSearchService, public youtubeService: YoutubeService) {}
 
   ngOnInit() {
     this.searchService
