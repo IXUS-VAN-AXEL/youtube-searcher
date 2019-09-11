@@ -1,7 +1,0 @@
-<nb-card>
-  <nb-list nbInfiniteList listenWindowScroll [threshold]="500" (bottomThreshold)="loadNext()">
-    <nb-list-item *ngFor="let video of videos$ | async" id="{{ video.id }}" class="list-item">
-      <app-video-card class="w-100" [video]="video"></app-video-card>
-    </nb-list-item>
-  </nb-list>
-</nb-card>
