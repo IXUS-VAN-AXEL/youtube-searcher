@@ -1,1 +1,10 @@
-<nb-search type="rotate-layout"></nb-search>
+<div class="search-container">
+    <nb-search type="rotate-layout"></nb-search>
+    <div class="search-control">
+        <span class="search-string">{{youtubeService.searchQuery$ | async}}</span>
+        <div *ngIf="youtubeService.searchQuery$ | async" nbButton size="tiny" (click)="clearSearch()">
+            <nb-icon class="icon" icon="close"></nb-icon>
+        </div>
+    </div>
+</div>
+
