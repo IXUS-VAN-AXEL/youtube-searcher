@@ -7,7 +7,7 @@
   placeholder="Filter favorites"
   class="search-bar"
 />
-<nb-list *ngIf="filteredVideos$ | async">
+<nb-list *ngIf="filteredVideos$ | async" class="favor-list">
   <nb-list-item *ngFor="let video of filteredVideos$ | async" class="list-item">
     <app-video-card [video]="video" [size]="'small'"></app-video-card>
   </nb-list-item>

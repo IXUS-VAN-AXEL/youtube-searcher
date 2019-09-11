@@ -25,7 +25,6 @@ export class FavoritesListComponent implements OnInit, OnDestroy {
   constructor(private youtubeService: YoutubeService, private indexDbService: IndexDbService) {}
 
   ngOnInit() {
-    this.getAllRecords();
     this.subToAddedToFavorites();
     this.configurateFilter();
   }
