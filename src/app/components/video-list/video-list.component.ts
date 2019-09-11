@@ -1,10 +1,10 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { filter, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { switchMap, takeUntil, tap } from 'rxjs/operators';
 
 // services
 import { YoutubeService } from '../../services';
-import {IndexDbService} from '../../modules/shared/services';
+import { IndexDbService } from '../../modules/shared/services';
 
 // models
 import { IVideoObject, ISearchListResponse } from '../../models';
@@ -24,15 +24,16 @@ export class VideoListComponent implements OnDestroy {
   private isQueried = false;
   private destroy$: Subject<void> = new Subject<void>();
 
-  constructor(private youtubeService: YoutubeService,
-              private indexDbService: IndexDbService) {
+  constructor(private youtubeService: YoutubeService, private indexDbService: IndexDbService) {
     this.indexDbService.connectToBase();
-    this.indexDbService.openDataBase()
-        .pipe(
-            takeUntil(this.destroy$),
-            switchMap(() => this.indexDbService.getAll()),
-            tap(data => this.indexDbService.allRecords$.next(data)),
-        ).subscribe();
+    this.indexDbService
+      .openDataBase()
+      .pipe(
+        takeUntil(this.destroy$),
+        switchMap(() => this.indexDbService.getAll()),
+        tap(data => this.indexDbService.allRecords$.next(data)),
+      )
+      .subscribe();
   }
 
   ngOnDestroy(): void {

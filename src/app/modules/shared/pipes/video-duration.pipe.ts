@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({ name: 'videoDuration' })
 export class VideoDurationPipe implements PipeTransform {
-  transform(value: any, args?: any[]): any {
+  transform(value: string, args?: any[]): string {
     const time = <string>value;
     if (!time) {
       return '...';

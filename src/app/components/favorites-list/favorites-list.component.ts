@@ -8,7 +8,7 @@ import { YoutubeService } from '../../services';
 import { IndexDbService } from '../../modules/shared/services';
 
 // models
-import { IVideoObject, ISearchListResponse } from '../../models';
+import { IVideoObject } from '../../models';
 
 @Component({
   selector: 'app-favorites-list',

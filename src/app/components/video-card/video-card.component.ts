@@ -1,9 +1,11 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
-import { filter, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+import { switchMap, takeUntil, tap } from 'rxjs/operators';
+
 // models
 import { IVideoObject } from '../../models';
 import { IFavoriteVideo } from '../../modules/shared/models';
+
 // services
 import { IndexDbService } from '../../modules/shared/services';
 

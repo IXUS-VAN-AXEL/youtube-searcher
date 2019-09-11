@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 
-// nebular
+// imports
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import {
   NbBadgeModule,
