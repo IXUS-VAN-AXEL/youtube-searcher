@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  youTubeApiKey: ''
+  youTubeApiKey: 'AIzaSyDQzj_wp0UhW614kdba-sO3P9EpSWwxBmQ'
 };
